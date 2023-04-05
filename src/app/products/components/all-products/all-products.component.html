@@ -1,1 +1,44 @@
 <app-carousel></app-carousel>
+
+<div class="container">
+  <div class="content d-flex">
+     <aside class="w-25">
+        <div class="categories">
+           <h4 class="text-dark">Categories</h4>
+           <select class="form-control">
+               <option value="all">All</option>
+               <option *ngFor="let cate of cateNames" [value]="cate">{{cate}}</option>
+           </select>
+
+        </div>
+        <app-aside></app-aside>
+     </aside>
+
+
+     <div class="all-products w-75 ms-5">
+      <div class="row" *ngIf="!isLoading">
+          <div class="product col-sm-6 col-md-4 col-xl-4 d-flex g-5" *ngFor="let product of allProducts">
+                <app-product class="w-100" data-aos="zoom-in" [data]="product" (item)="addToCart($event)"></app-product>
+          </div>
+      </div>
+
+      <div class="text-center">
+          <app-spinner *ngIf="isLoading"></app-spinner>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+<div class="all-products w-75 ms-5">
+  <div class="row" *ngIf="!isLoading">
+      <div class="product col-sm-6 col-md-4 col-xl-4 d-flex g-5" *ngFor="let product of allProducts">
+              <h6>{{product.title}}</h6>
+      </div>
+  </div>
+
+  <div class="text-center">
+      <app-spinner *ngIf="isLoading"></app-spinner>
+    </div>
+</div>

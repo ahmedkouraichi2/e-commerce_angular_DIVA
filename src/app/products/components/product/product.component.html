@@ -1,1 +1,29 @@
-<p>product works!</p>
+<div class="item w-100">
+  <div >
+  <div class="text-center">
+  <img [src]="data.image" class="w-75" alt="">
+  <button  routerLink="">go to detail </button>
+  </div>
+  <div class="body" >
+      <p class="text-center mb-1">{{data.category}}</p>
+      <h4 class="text-center">{{data.title }}</h4>
+  </div>
+  </div>
+
+  <div class="product-footer d-flex justify-content-between align-items-center">
+      <button class="fw-bold" *ngIf="!toQuantity" (click)="toQuantity = true">Add to cart</button>
+
+      <div class="quantity-details d-flex align-items-center"  *ngIf="toQuantity">
+      <label for="quantity">Quantity: </label>
+      <input type="number" min="1" id="quantity" class="form-control w-25 mx-2" >
+      <button class="fw-bold" (click)="sendData()" (click)="toQuantity = false">Add</button>
+      </div>
+
+      <span  class="fw-bold">{{data.price | currency:'EUR'}}</span>
+  </div>
+
+  <span class="rate text-white fw-bold fs-6">
+      <i class="fa-solid fa-star text-warning"></i>
+      {{data.rating.rate}}
+  </span>
+</div>

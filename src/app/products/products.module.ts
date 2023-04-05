@@ -5,6 +5,7 @@ import { AsideComponent } from './components/aside/aside.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductsDetailsComponent } from './components/products-details/products-details.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -17,7 +18,8 @@ import { ProductsDetailsComponent } from './components/products-details/products
     ProductsDetailsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   exports:[
     CarouselComponent,
